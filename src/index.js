@@ -1,5 +1,5 @@
 import { makeSprite, t } from "@replay/core";
-
+import Player from './Player';
 export const options = {
   dimensions: "scale-up",
 };
@@ -23,6 +23,7 @@ export const gameProps = {
     size: 10,
   },
 };
+
 
 export const Game = makeSprite({
   init({ updateState, preloadFiles }) {
@@ -64,7 +65,9 @@ export const Game = makeSprite({
     };
   },
 
-  render({ state }) {
+  render({ state, props }) {
+    // console.log('state: ', state)
+    // console.log('props: ', props)
     if (!state.loaded) {
       return [
         t.text({
